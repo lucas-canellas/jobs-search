@@ -54,6 +54,7 @@ export default function Home() {
           {data &&
             data.jobs.map((job) => (
               <Link
+                key={job.id}
                 href={{
                   pathname: `/${job.id}`,
                   query: {
