@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #F6F7FB;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container-pagination {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 140px;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #B7BCCE;  
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  color: #B9BDCF;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.square:hover {
+  border: 1px solid #1E86FF;
+  color: #1E86FF;
+}
+
+.square-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1E86FF;
+    border: 1px solid #1E86FF;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    color: #B9BDCF;
+    font-weight: 400;
+    font-size: 12px;
+}

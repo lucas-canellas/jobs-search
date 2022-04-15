@@ -1,16 +1,7 @@
-import Head from "next/head";
-import GlobalStyles from "../styles/global";
+import "./../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <title>Boilerplate</title>
-      </Head>
-      <GlobalStyles />
-      <Component {...pageProps} />
-    </>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
