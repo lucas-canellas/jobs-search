@@ -10,8 +10,6 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [location, setLocation] = useState("Brasil");
 
-  console.log(data);
-
   useEffect(() => {
     getData(page);
   }, [page, location]);
@@ -70,20 +68,22 @@ export default function Home() {
                 </a>
               </Link>
             ))}
-          <ReactPaginate
-            previousLabel={"<"}
-            nextLabel={">"}
-            breakLabel={"..."}
-            pageCount={500}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={3}
-            onPageChange={handlePageClick}
-            containerClassName={"container-pagination"}
-            pageClassName={"square"}
-            nextClassName={"square"}
-            previousClassName={"square"}
-            activeClassName={"square-active"}
-          />
+          {data && (
+            <ReactPaginate
+              previousLabel={"<"}
+              nextLabel={">"}
+              breakLabel={"..."}
+              pageCount={20}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={3}
+              onPageChange={handlePageClick}
+              containerClassName={"container-pagination"}
+              pageClassName={"square"}
+              nextClassName={"square"}
+              previousClassName={"square"}
+              activeClassName={"square-active"}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -8,7 +8,6 @@ function Job({ props }) {
   const router = useRouter();
 
   const { title, company, location, snippet } = router.query;
-  console.log(title);
 
   router;
   return (
