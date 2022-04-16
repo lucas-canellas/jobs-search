@@ -4,6 +4,8 @@ import Sidebar from "../components/Sidebar";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Home() {
   const [data, setData] = useState();
@@ -49,7 +51,7 @@ export default function Home() {
       <div className="grid grid-cols-6 gap-8">
         <Sidebar getLocation={getLocation} />
         <div className=" col-span-6 sm:col-span-4">
-          {data &&
+          {data ? (
             data.jobs.map((job) => (
               <Link
                 key={job.id}
@@ -67,7 +69,51 @@ export default function Home() {
                   <CardJob job={job} />
                 </a>
               </Link>
-            ))}
+            ))
+          ) : (
+            <>
+              <div className="flex gap-4 mb-3 bg-gray-100">
+                <Skeleton width={"90px"} height={"90px"} />
+                <div>
+                  <Skeleton width={"500px"} />
+                  <Skeleton width={"200px"} />
+                  <Skeleton width={"70px"} height={"25px"} />
+                </div>
+              </div>
+              <div className="flex gap-4 mb-4 bg-gray-100">
+                <Skeleton width={"90px"} height={"90px"} />
+                <div>
+                  <Skeleton width={"500px"} />
+                  <Skeleton width={"200px"} />
+                  <Skeleton width={"70px"} height={"25px"} />
+                </div>
+              </div>
+              <div className="flex gap-4 mb-4 bg-gray-100">
+                <Skeleton width={"90px"} height={"90px"} />
+                <div>
+                  <Skeleton width={"500px"} />
+                  <Skeleton width={"200px"} />
+                  <Skeleton width={"70px"} height={"25px"} />
+                </div>
+              </div>
+              <div className="flex gap-4 mb-4 bg-gray-100">
+                <Skeleton width={"90px"} height={"90px"} />
+                <div>
+                  <Skeleton width={"500px"} />
+                  <Skeleton width={"200px"} />
+                  <Skeleton width={"70px"} height={"25px"} />
+                </div>
+              </div>
+              <div className="flex gap-4 mb-4">
+                <Skeleton width={"90px"} height={"90px"} />
+                <div>
+                  <Skeleton width={"500px"} />
+                  <Skeleton width={"200px"} />
+                  <Skeleton width={"70px"} height={"25px"} />
+                </div>
+              </div>
+            </>
+          )}
           {data && (
             <ReactPaginate
               previousLabel={"<"}
