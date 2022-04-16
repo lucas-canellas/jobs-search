@@ -11,10 +11,11 @@ export default function Home() {
   const [data, setData] = useState();
   const [page, setPage] = useState(1);
   const [location, setLocation] = useState("Brasil");
+  const [keyword, setKeyword] = useState("ti");
 
   useEffect(() => {
     getData(page);
-  }, [page, location]);
+  }, [page, location, keyword]);
 
   async function getData(page) {
     const url = "https://br.jooble.org/api/";
@@ -27,7 +28,7 @@ export default function Home() {
       },
       body: JSON.stringify({
         location: location,
-        keywords: "ti",
+        keywords: keyword,
         page: page,
       }),
     })
@@ -42,12 +43,16 @@ export default function Home() {
   const getLocation = (e) => {
     setLocation(e.target.value);
   };
+
+  const getKeyword = (e) => {
+    setKeyword(e.target.value);
+  };
   return (
     <div className="container mx-auto px-2 md:px-0">
       <h1 className="text-2xl font-bold text-[#282538] py-8">
         Github <span className="font-light">Jobs</span>
       </h1>
-      <Search />
+      <Search getKeyword={getKeyword} />
       <div className="grid grid-cols-6 gap-8">
         <Sidebar getLocation={getLocation} />
         <div className=" col-span-6 sm:col-span-4">
@@ -119,9 +124,9 @@ export default function Home() {
               previousLabel={"<"}
               nextLabel={">"}
               breakLabel={"..."}
+              marginPagesDisplayed={3}
+              pageRangeDisplayed={0}
               pageCount={20}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={3}
               onPageChange={handlePageClick}
               containerClassName={"container-pagination"}
               pageClassName={"square"}
